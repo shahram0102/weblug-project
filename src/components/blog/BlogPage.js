@@ -7,6 +7,7 @@ import { Grid, Container, Typography, Avatar, Box } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { useNavigate } from "react-router-dom";
 import sanitizeHtml from "sanitize-html";
+import CommentForm from "../comment/CommentForm";
 
 function BlogPage() {
   const navigate = useNavigate();
@@ -67,6 +68,9 @@ function BlogPage() {
             <div
               dangerouslySetInnerHTML={{ __html: sanitizeHtml(content.html) }}
             ></div>
+          </Grid>
+          <Grid item xs={12}>
+            <CommentForm slug={slug} />
           </Grid>
         </Grid>
       </Container>
