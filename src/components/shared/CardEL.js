@@ -17,9 +17,18 @@ import {
 import { Link } from "react-router-dom";
 
 function CardEL({ author, title, slug, coverPhoto }) {
-  console.log(author.name);
+
   return (
-    <Card sx={{ boxShadow: "rgba(0,0,0,0.1) 0px 4px 12px", borderRadius: 4 }}>
+    <Card
+      sx={{
+        boxShadow: "rgba(0,0,0,0.1) 0px 4px 12px",
+        borderRadius: 4,
+        height: "100%",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-between",
+      }}
+    >
       <CardHeader
         avatar={<Avatar src={author.avatar.url} sx={{ marginLeft: 4 }} />}
         title={
@@ -34,7 +43,7 @@ function CardEL({ author, title, slug, coverPhoto }) {
         height={194}
         alt={slug}
       />
-      <CardContent>
+      <CardContent sx={{ height: "fit-content" }}>
         <Typography
           component="h3"
           variant="h6"
@@ -46,7 +55,10 @@ function CardEL({ author, title, slug, coverPhoto }) {
       </CardContent>
       <Divider variant="middle" sx={{ margin: "10px" }} />
       <CardActions>
-        {/* <Link> to={`blogs/{slug}`} style={{textDecoration:"none",width:"100%"}} */}
+        <Link
+          to={`/blogs/${slug}`}
+          style={{ textDecoration: "none", width: "100%" }}
+        >
           <Button
             variant="outlined"
             size="small"
@@ -54,7 +66,7 @@ function CardEL({ author, title, slug, coverPhoto }) {
           >
             خواندن مقاله
           </Button>
-        {/* </Link> */}
+        </Link>
       </CardActions>
     </Card>
   );

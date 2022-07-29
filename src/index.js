@@ -8,11 +8,13 @@ import { ApolloProvider, InMemoryCache, ApolloClient } from "@apollo/client";
 import { ThemeProvider } from "@mui/system";
 import theme from "./mui/theme";
 
+// React Router Dom
+import { BrowserRouter } from "react-router-dom";
+
 // components && styles
 import "./styles/index.css";
 import "./styles/foonts.css";
 import App from "./App";
-
 
 const client = new ApolloClient({
   uri: process.env.REACT_APP_GRAPHCMS_URI,
@@ -22,8 +24,10 @@ const client = new ApolloClient({
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <ApolloProvider client={client}>
-    <ThemeProvider theme={theme}>
-      <App />
-    </ThemeProvider>
+    <BrowserRouter>
+      <ThemeProvider theme={theme}>
+        <App />
+      </ThemeProvider>
+    </BrowserRouter>
   </ApolloProvider>
 );
