@@ -1,9 +1,9 @@
 // Apollo Client
 import { gql, useQuery } from "@apollo/client";
-import Header from "./components/Header";
 
 // components
 import HomePage from "./components/home/HomePage";
+import Layout from "./Layout/Layout";
 
 function App() {
   const QUERY = gql`
@@ -17,8 +17,9 @@ function App() {
   console.log(loading, data, error);
   return (
     <>
-      <Header />
-      <HomePage />
+      <Layout>
+        <HomePage />
+      </Layout>
     </>
   );
 }
