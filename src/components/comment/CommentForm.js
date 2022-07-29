@@ -12,6 +12,7 @@ function CommentForm({ slug }) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [text, setText] = useState("");
+  const [clicked, setClicked] = useState(false);
 
   const [sendComment, { loading, data, error }] = useMutation(SEND_COMMENT, {
     variables: {
@@ -28,6 +29,7 @@ function CommentForm({ slug }) {
       setName("");
       setEmail("");
       setText("");
+      setClicked(true);
     } else {
       toast.warn("تمام فیلد ها باید پر شوند", {
         position: "top-center",
@@ -36,12 +38,13 @@ function CommentForm({ slug }) {
     }
   };
 
-  if (data)
+  if (data && clicked) {
     toast.success("پیام شما با موفقیت ارسال شد", {
       position: "top-center",
       style: { maxWidth: "300px" },
     });
-
+    setClicked(false);
+  }
   return (
     <Grid
       sx={{
