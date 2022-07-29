@@ -16,11 +16,11 @@ function BlogPage() {
   const { loading, data, error } = useQuery(GET_BLOG_INFO, {
     variables: { slug },
   });
-  //   console.log(loading, data, error);
+
   if (loading) return <Loader />;
   if (error) return <h2>error</h2>;
   const { author, content, coverPhoto, title } = data.post;
-  console.log(author, content, coverPhoto, title);
+
   if (data)
     return (
       <Container maxWidth="lg">
@@ -41,7 +41,10 @@ function BlogPage() {
             >
               {title}
             </Typography>
-            <ArrowBackIcon onClick={() => navigate(-1)} />
+            <ArrowBackIcon
+              onClick={() => navigate(-1)}
+              style={{ cursor: "pointer" }}
+            />
           </Grid>
           <Grid item xs={12} mt={6}>
             <img

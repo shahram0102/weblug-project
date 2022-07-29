@@ -12,7 +12,6 @@ import Loader from "../shared/Loader";
 
 function AuthorPage() {
   const { slug } = useParams();
-  console.log(slug);
   const { loading, data, error } = useQuery(GET_AUTHOR_INFO, {
     variables: { slug },
   });
@@ -21,7 +20,6 @@ function AuthorPage() {
   if (error) return <h2>error</h2>;
 
   const { author } = data;
-  console.log(author);
 
   if (data)
     return (

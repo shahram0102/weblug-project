@@ -14,7 +14,6 @@ import Loader from "../shared/Loader";
 
 function Authors() {
   const { loading, data, error } = useQuery(GET_AUTHORS_INFO);
-  console.log(loading, data, error);
   if (loading) return <Loader/>;
   if (error) return <h2>error</h2>;
   return (
