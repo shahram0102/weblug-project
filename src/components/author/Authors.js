@@ -10,11 +10,12 @@ import { Grid, Avatar, Typography, Divider } from "@mui/material";
 
 // React Route Dom
 import { Link } from "react-router-dom";
+import Loader from "../shared/Loader";
 
 function Authors() {
   const { loading, data, error } = useQuery(GET_AUTHORS_INFO);
   console.log(loading, data, error);
-  if (loading) return <h2>loading</h2>;
+  if (loading) return <Loader/>;
   if (error) return <h2>error</h2>;
   return (
     <Grid

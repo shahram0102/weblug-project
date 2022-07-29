@@ -7,10 +7,11 @@ import { GET_BLOGS_INFO } from "../../graphql/queries";
 // Mui
 import { Grid } from "@mui/material";
 import CardEL from "../shared/CardEL";
+import Loader from "../shared/Loader";
 
 function Blogs() {
   const { loading, data, error } = useQuery(GET_BLOGS_INFO);
-  if (loading) return <h2>loading</h2>;
+  if (loading) return <Loader />;
   if (error) return <h2>error</h2>;
   return (
     <Grid container spacing={2}>
